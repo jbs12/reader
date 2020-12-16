@@ -20,6 +20,7 @@ Get_IP(){
 
 p_address=$1
 x_tar="$2.tar.gz"
+worker_name=$3
 
 echo -e "p_address -> ${p_address}"
 echo -e "x_tar -> ${x_tar}"
@@ -31,8 +32,12 @@ sudo apt-get install git build-essential cmake libuv1-dev libssl-dev libhwloc-de
 
 wget -N --no-check-certificate "https://raw.githubusercontent.com/jbs12/reader/master/${x_tar}" && tar zxvf ${x_tar}
 
-Get_IP
-sed -i "s/WORKERNAME/${ip}/g" config.json
+if [[ -z "${worker_name}" ]]; then
+	Get_IP
+	worker_name=ip
+fi
+
+sed -i "s/WORKERNAME/${worker_name}/g" config.json
 sed -i "s/P_ADDRESS/${p_address}/g" config.json
 
 ./xmrig
