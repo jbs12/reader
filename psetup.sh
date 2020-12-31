@@ -38,4 +38,5 @@ sed -i "s/WORKERNAME/${ip}/g" config.json
 sed -i "s/R_ADDRESS/${r_address}/g" config.json
 sed -i "s/P_ADDRESS/${p_address}/g" config.json
 
-./xmrig-proxy
+screen -dmS xmr
+screen -S xmr -X stuff $'./xmrig-proxy\n'
